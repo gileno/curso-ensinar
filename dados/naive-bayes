@@ -1,0 +1,15 @@
+100 pessoas realizaram o teste.
+20% das pessoas que realizaram o teste possuíam a doença.
+90% das pessoas que possuíam a doença, receberam positivo no teste.
+30% das pessoas que não possuíam a doença, receberam positivo no teste.
+
+P(doença|positivo) = 20% * 90%
+P(doença|positivo) = 0,2 * 0,9
+P(doença|positivo) = 0,18
+P(não doença|positivo) = 80% * 30%
+P(não doença|positivo) = 0,8 * 0,3
+P(não doença|positivo) = 0,24
+
+P(doença|positivo) = 0,18/(0,18+0,24) = 0,4285
+P(não doença|positivo) = 0,24/(0,18+0,24) = 0,5714
+0,4285 + 0,5714 = 0,9999 ... 1
