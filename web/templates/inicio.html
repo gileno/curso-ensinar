@@ -336,9 +336,13 @@
         </ol>
         <div class="container-fluid">
           <div class="animated fadeIn">
+            {% block conteudo %}
               <div class="card">
                   <div class="card-body">
                     <h2>Contatos</h2>
+                    <p class="text-right">
+                        <a href="/novo-contato/" class="btn btn-primary">Novo Contato</a>
+                    </p>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -359,6 +363,7 @@
                     </table>
                 </div>
               </div>
+            {% endblock %}
           </div>
         </div>
       </main>
