@@ -3,21 +3,21 @@
 {% block conteudo %}
 <div class="card">
     <div class="card-body">
-        <h3>Novo Contato</h3>
+        <h3>Editar Contato</h3>
         <form method="POST" action="">
             <div class="form-group">
                 <label for="">Nome</label>
-                <input required type="text" name="nome" id="" class="form-control" />
+                <input required type="text" name="nome" id="" class="form-control" value="{{ contato.nome }}" />
             </div>
             <div class="form-group">
                 <label for="">E-mail</label>
-                <input required type="text" name="email" id="" class="form-control" />
+                <input required type="text" name="email" id="" class="form-control" value="{{ contato.email }}" />
             </div>
             <div class="form-group">
                 <label for="">Telefone</label>
-                <input required type="text" name="telefone" id="" class="form-control" />
+                <input required type="text" name="telefone" id="" class="form-control" value="{{ contato.telefone }}" />
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
     </div>
 </div>

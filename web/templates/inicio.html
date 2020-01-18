@@ -349,6 +349,7 @@
                                 <th>Nome</th>
                                 <th>E-mail</th>
                                 <th>Telefone</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -357,6 +358,9 @@
                                 <td>{{ contato.nome }}</td>
                                 <td>{{ contato.email }}</td>
                                 <td>{{ contato.telefone }}</td>
+                                <td>
+                                  <a href="/editar-contato/{{ contato.id }}/" class="btn btn-success">Editar</a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
