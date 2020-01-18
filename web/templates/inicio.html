@@ -348,7 +348,13 @@
                             </tr>
                         </thead>
                         <tbody>
-      
+                            {% for contato in contatos %}
+                            <tr>
+                                <td>{{ contato.nome }}</td>
+                                <td>{{ contato.email }}</td>
+                                <td>{{ contato.telefone }}</td>
+                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
