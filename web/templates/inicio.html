@@ -338,33 +338,46 @@
           <div class="animated fadeIn">
             {% block conteudo %}
               <div class="card">
-                  <div class="card-body">
-                    <h2>Contatos</h2>
-                    <p class="text-right">
-                        <a href="/novo-contato/" class="btn btn-primary">Novo Contato</a>
-                    </p>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>E-mail</th>
-                                <th>Telefone</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for contato in contatos %}
-                            <tr>
-                                <td>{{ contato.nome }}</td>
-                                <td>{{ contato.email }}</td>
-                                <td>{{ contato.telefone }}</td>
-                                <td>
-                                  <a href="/editar-contato/{{ contato.id }}/" class="btn btn-success">Editar</a>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                <div class="card-body">
+                  <form action="" method="POST">
+                    <div class="form-group">
+                      <label for="">Área</label>
+                      <input type="text" class="form-control" name="area" />
+                    </div>
+                    <div class="form-group">
+                      <label for="">Vagas</label>
+                      <input type="text" class="form-control" name="vagas" />
+                    </div>
+                    <div class="form-group">
+                      <label for="">Quartos</label>
+                      <input type="text" class="form-control" name="quartos" />
+                    </div>
+                    <div class="form-group">
+                      <label for="">Banheiros</label>
+                      <input type="text" class="form-control" name="banheiros" />
+                    </div>
+                    <div class="form-group">
+                      <label for="">Suites</label>
+                      <input type="text" class="form-control" name="suites" />
+                    </div>
+                    <div class="form-group">
+                      <label for="">Condomínio</label>
+                      <input type="text" class="form-control" name="condominio" />
+                    </div>
+                    <div class="form-group">
+                      <label for="">IPTU</label>
+                      <input type="text" class="form-control" name="iptu" />
+                    </div>
+                    <div class="form-group">
+                      <label for="">Latitude</label>
+                      <input type="text" class="form-control" name="latitude" />
+                    </div>
+                    <div class="form-group">
+                      <label for="">Longitude</label>
+                      <input type="text" class="form-control" name="longitude" />
+                    </div>
+                    <button class="btn btn-primary">Qual o valor?</button>
+                  </form>
                 </div>
               </div>
             {% endblock %}
