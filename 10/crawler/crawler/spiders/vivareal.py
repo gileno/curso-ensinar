@@ -16,11 +16,15 @@ class VivarealSpider(scrapy.Spider):
         proxima_pagina = response.xpath(
             "//*[@title='Próxima página']/@data-page"
         ).extract_first()
-        if proxima_pagina:
-            yield scrapy.Request(
-                url=response.urljoin(f'?pagina={proxima_pagina}'),
-                callback=self.parse
-            )
+        try:
+            proxima_pagina = int(proxima_pagina)
+            if proxima_pagina and proxima_pagina < 20:
+                yield scrapy.Request(
+                    url=response.urljoin(f'?pagina={proxima_pagina}'),
+                    callback=self.parse
+                )
+        except:
+            pass
 
     def parse_item(self, response):
         item = {}
