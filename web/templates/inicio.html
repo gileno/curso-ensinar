@@ -339,6 +339,9 @@
             {% block conteudo %}
               <div class="card">
                 <div class="card-body">
+                  {% if previsao %}
+                  <h4>R$ {{ previsao }}</h4>
+                  {% endif %}
                   <form action="" method="POST">
                     <div class="form-group">
                       <label for="">Área</label>
@@ -369,12 +372,8 @@
                       <input type="text" class="form-control" name="iptu" />
                     </div>
                     <div class="form-group">
-                      <label for="">Latitude</label>
-                      <input type="text" class="form-control" name="latitude" />
-                    </div>
-                    <div class="form-group">
-                      <label for="">Longitude</label>
-                      <input type="text" class="form-control" name="longitude" />
+                      <label for="">Endereço</label>
+                      <input type="text" class="form-control" name="endereco" />
                     </div>
                     <button class="btn btn-primary">Qual o valor?</button>
                   </form>

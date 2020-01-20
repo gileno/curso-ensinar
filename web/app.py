@@ -1,4 +1,8 @@
 import dataset
+import joblib
+import pandas as pd
+import os
+from geopy.geocoders import Nominatim
 
 from flask import Flask, render_template, request, redirect
 
@@ -6,12 +10,22 @@ from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def inicio():
-    banco = dataset.connect('sqlite:///db.sqlite3')
-    contatos = banco['contatos'].find()
-    titulo = 'Curso Python'
-    return render_template('inicio.html', titulo=titulo, contatos=contatos)
+    if request.method == 'POST':
+        dados = request.form.to_dict()
+        modelo = joblib.load('mlp.joblib')
+        # latitude,longitude,valor,iptu,condominio,area,quartos,banheiros,suites,vaga
+        geocoder = Nominatim()
+        localizacao = geocoder.geocode(dados['endereco'])
+        dados = pd.DataFrame(
+            [[localizacao.latitude, localizacao.longitude, dados['iptu'], dados['condominio'],
+            dados['area'], dados['quartos'], dados['banheiros'], dados['suites'], dados['vagas']]]
+        )
+        previsao = round(modelo.predict(dados)[0], 2)
+    else:
+        previsao = None
+    return render_template('inicio.html', previsao=previsao)
 
 
 @app.route('/novo-contato/', methods=['GET', 'POST'])
