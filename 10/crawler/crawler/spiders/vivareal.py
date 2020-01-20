@@ -1,5 +1,7 @@
 import scrapy
 
+from scrapy_splash import SplashRequest
+
 
 class VivarealSpider(scrapy.Spider):
     name = 'vivareal'
@@ -11,6 +13,7 @@ class VivarealSpider(scrapy.Spider):
             '//*[@class="results-list js-results-list"]//article/div/a/@href'
         )
         for item in items.extract():
+            self.log(item)
             url = response.urljoin(item)
             yield scrapy.Request(url=url, callback=self.parse_item)
         proxima_pagina = response.xpath(
@@ -19,9 +22,9 @@ class VivarealSpider(scrapy.Spider):
         try:
             proxima_pagina = int(proxima_pagina)
             if proxima_pagina and proxima_pagina < 20:
-                yield scrapy.Request(
+                yield SplashRequest(
                     url=response.urljoin(f'?pagina={proxima_pagina}'),
-                    callback=self.parse
+                    callback=self.parse, args={'wait': 1}
                 )
         except:
             pass
