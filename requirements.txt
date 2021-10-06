@@ -81,7 +81,7 @@ scikit-learn==0.22.1
 scikit-neuralnetwork==0.7
 scipy==1.4.1
 Scrapy==1.8.0
-scrapy-splash==0.7.2
+scrapy-splash==0.8.0
 seaborn==0.9.0
 Send2Trash==1.5.0
 service-identity==18.1.0
